@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skills · DS³</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="skills">
+  <div class="wrap">
+    <header class="top small">
+      <a class="back" href="index.html">←</a>
+      <h1 class="logo">Skills</h1>
+    </header>
+
+    <main class="content">
+      <section class="section card-light">
+        <h2>Add Skill</h2>
+        <form id="skillForm" class="form">
+          <input id="skillName" required placeholder="Skill name (e.g., React, Guitar)" />
+          <input id="skillNote" placeholder="Short note (optional)" />
+          <div class="row">
+            <label>Progress: <span id="progressVal">0</span>%</label>
+            <input id="skillProgress" type="range" min="0" max="100" value="0" />
+          </div>
+          <button type="submit" class="btn">Add Skill</button>
+        </form>
+      </section>
+
+      <section class="section card-light">
+        <h2>Your Skills</h2>
+        <div id="skillsList" class="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

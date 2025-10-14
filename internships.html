@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Internships · DS³</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="internships">
+  <div class="wrap">
+    <header class="top small">
+      <a class="back" href="index.html">←</a>
+      <h1 class="logo">Internships</h1>
+    </header>
+
+    <main class="content">
+      <section class="section card-light">
+        <h2>Share Internship</h2>
+        <form id="internForm" class="form">
+          <input id="internRole" required placeholder="Role / Title (e.g., Web Dev Intern)" />
+          <input id="internCompany" required placeholder="Company (e.g., Google)" />
+          <input id="internDuration" placeholder="Duration (e.g., Jun - Aug 2025)" />
+          <textarea id="internNote" rows="3" placeholder="What you learned / tips"></textarea>
+          <button class="btn" type="submit">Post Internship</button>
+        </form>
+      </section>
+
+      <section class="section card-light">
+        <h2>All Internships</h2>
+        <div id="internList" class="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

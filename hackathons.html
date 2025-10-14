@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hackathons · DS³</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="hackathons">
+  <div class="wrap">
+    <header class="top small">
+      <a class="back" href="index.html">←</a>
+      <h1 class="logo">Hackathons</h1>
+    </header>
+
+    <main class="content">
+      <section class="section card-light">
+        <h2>Add Hackathon</h2>
+        <form id="hackForm" class="form">
+          <input id="hackName" required placeholder="Hackathon name" />
+          <input id="hackOrg" placeholder="Organizer / Company" />
+          <input id="hackDates" placeholder="Dates (e.g., Jul 3 - 5)" />
+          <input id="hackLink" placeholder="Registration link (optional)" />
+          <textarea id="hackDesc" rows="3" placeholder="Short description / theme"></textarea>
+          <button class="btn" type="submit">Post Hackathon</button>
+        </form>
+      </section>
+
+      <section class="section card-light">
+        <h2>Upcoming & Ongoing</h2>
+        <div id="hackList" class="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

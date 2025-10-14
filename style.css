@@ -1,0 +1,313 @@
+/* DS³ — Neon blue / purple gradient theme
+   Replace your old style.css with this file.
+   Works with the HTML & JS you already have.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+:root{
+  --bg-a: #05060c;       /* deep dark */
+  --bg-b: #071426;       /* dark navy */
+  --grad-mid: #0b1630;   /* navy-mid */
+  --neon-blue: #18b0ff;  /* electric blue */
+  --neon-purple: #9b4cff;/* neon purple */
+  --muted: #9fb0c6;
+  --card-alpha: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.02);
+  --glass-2: rgba(255,255,255,0.025);
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: 'Orbitron', sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(11,20,48,0.6), transparent 15%),
+              linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 45%, #020617 100%);
+  color: #e9f4ff;
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:28px;
+}
+
+/* Main wrapper */
+.wrap{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding-bottom:40px;
+}
+
+/* Top header */
+.top{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:14px;
+}
+.top.small{margin-bottom:18px}
+.logo{
+  font-size:2.2rem;
+  color:var(--neon-blue);
+  letter-spacing:1px;
+  text-shadow: 0 6px 22px rgba(24,176,255,0.08), 0 0 18px rgba(155,76,255,0.03);
+}
+.logo sup{font-size:0.6rem; vertical-align:super; color:var(--neon-purple)}
+.tag{color:var(--muted); font-size:0.95rem}
+
+/* Layout: on wide screens show mockup-like columns; on small screens stack */
+@media (min-width:960px){
+  .layout{
+    display:grid;
+    grid-template-columns: 420px 1fr; /* left narrow (phone mockup), right content */
+    gap:28px;
+    align-items:start;
+  }
+}
+
+/* Grid for the index page cards (desktop & mobile) */
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+  justify-content:center;
+  margin-top:14px;
+}
+
+/* Card styles (neon glass) */
+.card{
+  width:260px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));
+  border-radius:18px;
+  padding:20px;
+  text-decoration:none;
+  color:var(--neon-blue);
+  box-shadow:
+    0 12px 40px rgba(2,12,24,0.6),
+    inset 0 0 22px rgba(24,176,255,0.02);
+  border: 1px solid rgba(155,76,255,0.04);
+  transition: transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s ease, border-color .36s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.card .icon{font-size:2.4rem}
+.card .title{font-size:1.14rem; color:var(--neon-blue); font-weight:600}
+.card .desc{color:var(--muted); font-size:0.9rem; text-align:center}
+.card:hover{
+  transform: translateY(-10px) scale(1.03);
+  border-color: linear-gradient(90deg,var(--neon-blue),var(--neon-purple));
+  box-shadow:
+    0 20px 60px rgba(11,40,80,0.55),
+    inset 0 0 26px rgba(155,76,255,0.035);
+  outline: 1px solid rgba(24,176,255,0.04);
+}
+
+/* Footer */
+.foot{text-align:center;color:#7f97a9;margin-top:26px; font-size:0.85rem}
+
+/* Content pages */
+.content{margin-top:12px}
+.section{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15));
+  padding:18px;
+  border-radius:14px;
+  margin-bottom:14px;
+  border:1px solid rgba(24,176,255,0.03);
+  box-shadow: 0 8px 30px rgba(2,8,20,0.5);
+}
+
+/* Form elements */
+.form{display:flex;flex-direction:column;gap:10px}
+.form input, .form textarea, .msgform input, select{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding:10px 12px;
+  border-radius:10px;
+  color: #e8f6ff;
+  outline:none;
+  font-family: inherit;
+  transition: box-shadow .18s ease, border-color .18s ease, transform .12s ease;
+}
+.form input:focus, .form textarea:focus, .msgform input:focus{
+  box-shadow: 0 6px 20px rgba(24,176,255,0.06);
+  border-color: rgba(24,176,255,0.14);
+  transform: translateY(-1px);
+}
+.form textarea{min-height:80px; resize:vertical}
+
+/* Buttons */
+.btn{
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  color: #001;
+  padding:10px 14px;
+  border-radius:10px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 12px 30px rgba(24,176,255,0.1);
+}
+.btn.small{padding:7px 10px;font-size:0.9rem}
+.btn:active{transform: translateY(1px)}
+
+/* Lists & items */
+.list{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:10px 12px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.22), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.02);
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.35);
+}
+.item .meta{display:flex;flex-direction:column}
+.item .title{color:var(--neon-blue); font-weight:700}
+.item .muted{color:var(--muted); font-size:0.88rem}
+
+/* Message area */
+.messages{
+  height:320px;
+  overflow:auto;
+  padding:10px;
+  gap:10px;
+  display:flex;
+  flex-direction:column;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(2,6,14,0.35), rgba(0,0,0,0.45));
+  border:1px solid rgba(255,255,255,0.02);
+}
+.msg{
+  max-width:72%;
+  padding:10px 12px;
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(6,18,34,0.6), rgba(3,8,18,0.8));
+  border:1px solid rgba(24,176,255,0.04);
+  color: #85bbd7;
+  align-self:flex-start;
+  box-shadow: 0 6px 18px rgba(2,8,25,0.5);
+}
+.msg.you{
+  align-self:flex-end;
+  background: linear-gradient(90deg, rgba(24,176,255,0.12), rgba(155,76,255,0.06));
+  border:1px solid rgba(24,176,255,0.12);
+  color:#001;
+}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;margin-bottom:10px}
+.tab{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03); color:var(--muted); cursor:pointer; background:transparent}
+.tab.active{color:var(--neon-blue); border-color: rgba(24,176,255,0.16); box-shadow: 0 8px 22px rgba(24,176,255,0.06)}
+
+/* small utilities */
+.back{text-decoration:none;color:var(--muted);font-size:1.1rem;margin-right:8px}
+
+/* Animations */
+@keyframes glowIn { from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)} }
+.fade-in{animation:glowIn .6s ease}
+
+/* Flash when added */
+.flash{ animation:flashGlow 1.2s ease }
+@keyframes flashGlow {
+  0%{ box-shadow: 0 0 0 rgba(24,176,255,0) }
+  30%{ box-shadow: 0 0 22px rgba(24,176,255,0.22) }
+  100%{ box-shadow: 0 0 0 rgba(24,176,255,0) }
+}
+
+/* PHONE MOCKUP (desktop presentation) */
+.phone {
+  width: 420px;
+  height: 820px;
+  border-radius: 34px;
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(3,8,20,0.85), rgba(2,8,20,0.95));
+  box-shadow:
+    0 30px 80px rgba(2,6,18,0.6),
+    inset 0 0 40px rgba(24,176,255,0.02);
+  border: 1px solid rgba(24,176,255,0.035);
+}
+
+/* bottom nav style for phone look */
+.bottom-nav{
+  width:100%;
+  display:flex;
+  gap:12px;
+  justify-content:space-around;
+  align-items:center;
+  padding:12px;
+  border-radius:16px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.01));
+  margin-top:12px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+/* progress ring helper (for skills screen) */
+.progress-wrap{display:flex;align-items:center;gap:14px}
+.ring{
+  --size:86px;
+  width:var(--size);
+  height:var(--size);
+  border-radius:50%;
+  display:inline-grid;
+  place-items:center;
+  background: conic-gradient(var(--neon-blue) 0deg, var(--neon-purple) 360deg);
+  padding:6px;
+}
+.ring .inner{
+  width:calc(var(--size) - 20px);
+  height:calc(var(--size) - 20px);
+  border-radius:50%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(6,14,28,0.8));
+  display:grid;place-items:center;color:#5da7cb;font-weight:700;
+}
+
+/* RESPONSIVE tweaks */
+@media (max-width:960px){
+  body{padding:18px}
+  .wrap{max-width:720px}
+  .card{width:90%}
+  .grid{flex-direction:column;align-items:center}
+  .phone{width:100%; height:auto; border-radius:14px; padding:16px}
+  .messages{height:280px}
+}
+
+/* tiny typography helpers */
+.muted{color:var(--muted)}
+.small{font-size:0.88rem}
+
+
+#chatUserSelect {
+  color: var(--neon-blue); /* neon blue text */
+  background: linear-gradient(180deg, rgba(3,8,20,0.85), rgba(2,8,20,0.95)); /* dark neon background */
+  border: 1px solid rgba(24,176,255,0.15);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif;
+  outline: none;
+  box-shadow: inset 0 0 12px rgba(24,176,255,0.02); /* subtle inner glow */
+}
+
+/* Arrow icon using pseudo-element */
+#chatUserSelect::-ms-expand { display: none; } /* hide IE default arrow */
+
+/* On focus */
+#chatUserSelect:focus {
+  color: var(--neon-purple);
+  background: linear-gradient(180deg, rgba(11,20,48,0.8), rgba(2,8,20,0.95));
+  box-shadow: 0 0 12px var(--neon-blue);
+}
+
+/* Optional: dropdown options styling */
+#chatUserSelect option {
+  background: rgba(2,8,20,0.95); /* match dark theme */
+  color: var(--neon-blue);
+}
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chat · DS³</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="chat">
+  <div class="wrap">
+    <header class="top small">
+      <a class="back" href="index.html">←</a>
+      <h1 class="logo">Chat</h1>
+    </header>
+
+    <main class="content">
+      <section class="section card-light">
+        <h2>Chats</h2>
+        <div class="tabs">
+          <button class="tab active" data-target="group">Group Chat</button>
+          <button class="tab" data-target="one">1-to-1 Chats</button>
+        </div>
+
+        <div id="group" class="tabcontent show">
+          <div id="groupMessages" class="messages"></div>
+          <form id="groupForm" class="msgform">
+            <input id="groupSender" placeholder="Your name (default: You)" />
+            <input id="groupMsg" required placeholder="Write message..." />
+            <button class="btn small" type="submit">Send</button>
+          </form>
+        </div>
+
+        <div id="one" class="tabcontent">
+          <div class="row">
+            <select id="chatUserSelect"></select>
+            <button id="newChat" class="btn small">New 1-1</button>
+          </div>
+
+          <div id="oneMessages" class="messages"></div>
+
+          <form id="oneForm" class="msgform">
+            <input id="oneSender" placeholder="Your name (default: You)" />
+            <input id="oneMsg" required placeholder="Write message..." />
+            <button class="btn small" type="submit">Send</button>
+          </form>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
